@@ -227,7 +227,7 @@ $(document).ready(function() {
       };
       $.post("/api/notes", noteData).then(function() {
         // close modal
-        // bootbox.hideAll();
+        bootbox.hideAll();
       });
     } else { 
       bootbox.alert ({
