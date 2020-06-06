@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="assets/images/ringer-blue-circle-transparent.png" alt="ringer logo">Web
+    Scraper</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="saved">Saved Articles</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid text-center">
+  <a href"https://www.theringer.com/features">
+    <img src="assets/images/the-ringer-neg-pink.svg" alt="The Ringer logo">
+  </a>
+  <br><br>
+  <h1 style="margin-top: 20px;">Saved Articles</h1>
+  {{!-- <a class="btn btn-primary btn-lg" id="scrape-articles-button" href="#" role="button">Scrape Articles</a>
+  <a class="btn btn-primary btn-lg" id="clear-articles-button" href="#" role="button">Clear Articles</a> --}}
+</div>
+
+{{!-- no articles loaded initially --}}
+{{!-- <div class="alert alert-primary container text-center articles col-10 offset-1" role="alert"
+  id="no-saved-articles-alert">
+  <h2>You do not have any saved articles.</h2>
+</div> --}}
+
+<div class="article-container">
+
+{{!-- article cards --}}
+
+</div>
+
+{{!-- modal testing for design
+<div class="modal fade" id="articleNotesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="close-modal-button" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Article Notes</h3>
+      </div>
+
+      <div class="alert alert-dark" role="alert">
+        No notes yet.
+      </div>
+
+      <div class="modal-body">
+        <div class="note">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur nobis aliquid
+          exercitationem reprehenderit sunt, quod vel optio, cum minima corporis nesciunt voluptas amet quam quia animi!
+          Est eius impedit voluptatem.</div>
+        <div class="delete-note-button"><button>&times;</button>
+        </div>
+      </div>
+
+      <form>
+        <div class="form-group notes-form">
+          <label for="exampleFormControlTextarea1"></label>
+          <textarea class="form-control" id="article-note" rows="3"></textarea>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary add-note-button" id="add-note-button">Add Note</button>
+      </div>
+    </div>
+  </div>
+</div>  --}}
+
+{{!-- push footer to bottom --}}
+<div style="flex-grow:1"></div>
+
+<footer>
+  <div class="footer text-center">
+    <p>The Ringer Headlines Mongo Web Scraper</a>
+      <br>
+      <img src="assets/images/github-logo.svg">
+      <img src="assets/images/heroku-logo.svg">
+    </p>
+  </div>
+</footer>
+
+{{!-- Bootstrap JS --}}
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
+  </script>
+{{!-- font awesome --}}
+<script>
+    $('.display-icon').click(function() {
+      $(this).children("i").attr("class", "fa far fa-trash-alt fa-pulse fa-3x fa-fw ") ;
+    });  
+</script>
+{{!-- my saved.js file --}}
+<script src="../../assets/javascript/saved.js"></script>

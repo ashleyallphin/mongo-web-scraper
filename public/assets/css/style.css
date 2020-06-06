@@ -1,0 +1,556 @@
+/* 
+========================================
+FONTS
+@font-face {
+    font-family: 'Sweet Sans Pro Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sweet Sans Pro Light'), url('SweetSansProLight.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sweet Sans Pro Light Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sweet Sans Pro Light Italic'), url('SweetSansProLightItalic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sweet Sans Pro Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sweet Sans Pro Medium'), url('SweetSansProMedium.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sweet Sans Pro Heavy';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Sweet Sans Pro Heavy'), url('SweetSansProHeavy.woff') format('woff');
+}
+
+========================================
+COLORS
+purple: #8273aa
+pink: #f81376
+yellow: #ffe500
+blue: #4bb1e2
+orange: #FF6804
+green: #8cc53e
+
+dark gray: #c6c6c6
+light gray: #efefef
+
+========================================
+
+*/
+
+
+@font-face {
+  font-family: 'Sweet Sans Pro Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sweet Sans Pro Light'), url('SweetSansProLight.woff') format('woff');
+}
+@font-face {
+  font-family: 'Sweet Sans Pro Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sweet Sans Pro Light Italic'), url('../fonts/sweet-sans-pro-cufonfonts-webfont/SweetSansProLightItalic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Sweet Sans Pro Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sweet Sans Pro Medium'), url('../fonts/sweet-sans-pro-cufonfonts-webfont/SweetSansProMedium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Sweet Sans Pro Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sweet Sans Pro Medium Italic'), url('../fonts/sweet-sans-pro-cufonfonts-webfont/SweetSansProMediumItalic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Sweet Sans Pro Heavy';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sweet Sans Pro Heavy'), url('../fonts/sweet-sans-pro-cufonfonts-webfont/SweetSansProHeavy.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sweet Sans Pro Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sweet Sans Pro Light'), url('../fonts/sweet-sans-pro-cufonfonts-webfont/SweetSansProLight.woff') format('woff');
+  }
+
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.date-and-category {
+  flex: 1;
+}
+
+.remove-article-button {
+  flex: 1;
+}
+
+body {
+  background-color: #f81376;
+  font-family: 'Sweet Sans Pro Medium';
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  border-bottom: 10px solid #ffe500;
+}
+
+.navbar img {
+  height: 40px;
+  padding-bottom: 2px;
+  margin-right: 10px;
+}
+
+.navbar-toggler:active,
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+  outline: #f81376 auto 5px;
+}
+
+.jumbotron {
+  background-color: #4bb1e2;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+
+}
+
+.scrape-clear-buttons {
+  margin-top: 28px;
+}
+
+h1 {
+  font-family: 'Sweet Sans Pro Heavy';
+  text-transform: uppercase;
+  color: #fff;
+}
+
+h2 {
+  font-family: 'Sweet Sans Pro Medium';
+  color: #fff;
+}
+
+h3 {
+  font-family: 'Sweet Sans Pro Heavy';
+  text-transform: uppercase;
+  color: #4bb1e2;
+}
+
+h5 {
+  font-size: 26px;
+}
+
+h6 {
+  font-family: 'Sweet Sans Pro Heavy';
+  color: #4bb1e2;
+}
+
+.jumbotron img {
+  max-width: 60%;  
+  padding: 50px, 2rem;
+}
+
+.category-and-date {
+  padding-left: 17px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: stretch;
+}
+
+.article-date {
+  font-family: 'Sweet Sans Pro Light';
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.col-md-4,
+.col-md-8 {
+  padding: 0px;
+  display: inline;
+}
+
+.btn-lg {
+  background-color: #f81376;
+  color: #fff;
+  border: 3px #ffe500 solid;
+  margin: 10px;
+}
+
+.btn-lg:hover,
+.btn-lg:active,
+.btn-lg:focus,
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  box-shadow: 0 0 0 0.2rem rgba(255, 229, 0, .5);
+  background-color: #f81376;
+  color: #fff;
+  border: 3px #ffe500 solid;
+}
+
+.btn-md {
+  background-color: #4bb1e2;
+  color: #fff;
+  border: 0px solid;
+  margin: 0px;
+}
+
+.btn-md:hover,
+.btn-md:active,
+.btn-md:focus {
+  box-shadow: 5px 5px #ffe500;
+  background-color: #f81376;
+  color: #fff;
+}
+
+.added-notes {
+  display: flex;
+}
+
+
+
+.save-note-button {
+  background-color: #4bb1e2;
+  color: #fff;
+  border: 0px solid;
+  margin: 0px;
+  opacity: 75%;
+}
+
+.save-note-button:hover,
+.save-note-button:focus,
+.save-note-button:active {
+  opacity: 100%;
+  color: #fff;
+}
+
+.add-note-textarea {
+  font-family: 'Sweet Sans Pro Light';
+  margin-top: 20px;
+}
+
+.add-note-textarea:focus,
+.add-note-textarea:active {
+  border: none;
+  box-shadow: none;
+  outline-color: #ffe500;
+  outline-style: auto;
+  outline-width: 0px;
+  box-shadow: 0 0 0 0.2rem rgba(255, 229, 0, .75);
+  resize: vertical;
+}
+
+.list-group.note-container li {
+  text-align: left !important;
+}
+
+.list-group-item {
+  word-wrap: break-word;
+  padding-right: 35px;
+}
+
+.alert {
+  border-radius: 0px;
+  background-color: #4bb1e2;
+  border: 0px;
+}
+
+.alert h2 {
+  margin-bottom: 0px;
+}
+
+.card {
+  padding: 0px;
+  border: none;
+  border-bottom: 10px #ffe500 solid;
+  border-radius: 0px 0px 0px 0px;
+  margin-bottom: 30px;
+}
+
+.card img {
+  border-radius: 0px 0px 0px 0px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.save-article-button {
+  margin-top: 5px;
+}
+
+.saved-article-buttons {
+  display: flex;
+  max-width: 100%;
+  max-width: 90%;
+}
+
+.article-title a {
+  text-decoration: none;
+  color: #000;
+}
+
+.balance-text {
+  text-wrap: balance;  /* Apply (proposed) CSS style */
+}
+
+.delete-article-button {
+  background-color: #ffe500;
+  height: 1.25rem;
+  width: 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  text-align: center;
+  opacity: 100%;
+  outline: none;
+  border: none;
+  color: white;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  border-color: none;
+  margin-left: 10px;
+  padding: 10px, 10px, 10px, 10px;
+  cursor: pointer;
+}
+
+.note-delete,
+.note-delete:hover,
+.note-delete:active,
+.note-delete:focus {
+  color: #f81376;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.scrape-instructions {
+  font-family: 'Sweet Sans Pro Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Sweet Sans Pro Light'), url('../fonts/sweet-sans-pro-cufonfonts-webfont/SweetSansProLight.woff') format('woff');
+  color: #fff;
+  margin-top: 10px;
+}
+
+footer {
+  background-color:#c6c6c6;
+  padding-top: 25px;
+  text-align: center;
+  border-top: 10px solid #ffe500;
+  margin-top: 40px;
+  color: #fff;
+  font-size: x-small;
+  padding-bottom: 5px;
+}
+
+footer img {
+  height: 20px;
+  margin: 5px;
+}
+
+footer a {
+  color: #fff;
+}
+
+.footer a:hover,
+.footer a:active,
+.footer a:focus {
+  color: #f81376;
+  text-decoration: none;
+}
+
+.close-modal-button {
+  color: #f81376;
+  margin: 20px;
+}
+
+.modal-header {
+  padding-top: 0px;
+}
+
+/* .modal-body {
+  display: flex;
+  justify-content: space-between;
+} */
+
+/* .modal-body button.close {
+  background-color: #ffe500;
+  opacity: 75%;
+  outline: none;
+  border: none;
+  color: white;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  border-color: none;
+  color: #fff;
+} */
+
+.close {
+  text-shadow: none;background-color: #ffe500 !important;
+  height: 1.4rem;
+  width: 1.4rem;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  text-align: center;
+  outline: none;
+  border: none;
+  color: white;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  border-color: none;
+  cursor: pointer;
+  margin-top: 0px !important;
+  font-weight: 400;
+  opacity: 75%;
+}
+
+.close:hover {
+  opacity: 100% !important;
+  cursor: pointer;
+  color: #fff;
+}
+
+.close:active,
+.close:focus {
+  outline: none !important;
+  opacity: 100% !important;
+}
+
+.bootbox-close-button button:hover {
+  opacity: 100%;
+  color: #fff;
+}
+
+.bootbox-body h5 {
+  font-size: 20px;
+  margin-top: 35px;
+  color: #4bb1e2;
+}
+
+.modal-body h3 {
+  font-size: 30px;
+  margin-top: 15px;
+  color: #4bb1e2;
+}
+
+.bootbox.modal.fade.bootbox-alert.show button:focus,
+.bootbox.modal.fade.bootbox-alert.show button:active {
+  box-shadow: 0 0 0 0.1rem inset rgba(255, 229, 0, .75)
+}
+
+.bootbox.modal.fade.bootbox-alert.show button:hover {
+  background-color: #fff;
+}
+
+.modal-footer {
+  background-color: #efefef;
+}
+
+.modal-footer button {
+  background-color: #efefef;
+  color: #4bb1e2;
+  border: none;
+}
+
+.modal-footer button:hover,
+.modal-footer button:focus {
+  background-color: #efefef;
+  color: #f81376;
+  border:none;
+  outline: none;
+}
+
+.no-notes-yet {
+  background-color: #fff;
+  color: #f81376;
+  border: none;
+  font-family: 'Sweet Sans Pro Heavy';
+}
+
+.form-group {
+  margin: 0px;
+}
+
+textarea {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark-color(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: textarea;
+  background-color: -internal-light-dark-color(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  flex-direction: column;
+  resize: auto;
+  cursor: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  margin: 0em;
+  font: 400 13.3333px "Sweet Sans Pro Medium";
+  border: none;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.form-control {
+  display: block;
+  padding: 10px;
+  max-width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ffe500;
+  border-radius: 0px;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+  border: none;
+  box-shadow: 0 0 0 0.1rem inset rgba(255, 229, 0, .75)
+}
+
+
+/* 
+========================================
+MEDIA QUERIES
+*/
+
+@media only screen and (min-width: 576px) {
+
+.jumbotron {
+    padding: 4rem, 1rem;
+}
+};
+
+@media only screen and (max-width: 768px) {
+
+  .jumbotron img {
+      max-width: 80%;  
+  }
+}
