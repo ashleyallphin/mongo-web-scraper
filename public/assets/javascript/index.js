@@ -1,50 +1,44 @@
-/* gloabl bootbox */
+//when the html is loaded, run the js
 $(document).ready(function() {
-  // Setting a reference to the article-container div where all the dynamic content will go
-  // Adding event listeners to any dynamically generated "save article"
-  // and "scrape new article" buttons
+  //article container div from the homepage
   var articleContainer = $(".article-container");
+  //listen to run the functions
   $(document).on("click", ".btn.save", handleArticleSave);
   $(document).on("click", ".scrape-new", handleArticleScrape);
 
-  // Once the page is ready, run the runApp function to kick things off
-  runApp();
+//run the app on page load
+runApp();
 
   function runApp() {
-    // Empty the article container, run an AJAX request for any unsaved headlines
+    //empty the article container div
     articleContainer.empty();
+    //get the unsaved articles
     $.get("/api/headlines?saved=false")
       .then(function(data) {
-        // If we have headlines, render them to the page
+        // if there are headlines, load to page
         if (data && data.length) {
           loadArticles(data);
         }
         else {
-          // Otherwise render a message explaing we have no articles
+          // or run the renderEmpty function
           renderEmpty();
         }
       });
   }
 
   function loadArticles(articles) {
-    // This function handles appending HTML containing our article data to the page
-    // We are passed an array of JSON containing all available articles in our database
+    //empty article cards array
     var articlecards = [];
-    // We pass each article JSON object to the populateBSCard function which returns a bootstrap
-    // card with our article data inside
+    //for each article that was populated in populateBSCard, push into article cards
     for (var i = 0; i < articles.length; i++) {
       articlecards.push(populateBSCard(articles[i]));
     }
-    // Once we have all of the HTML for the articles stored in our articlecards array,
-    // append them to the articlecards container
+    //push the article cards into the article container div on the page
     articleContainer.append(articlecards);
   }
 
   function populateBSCard(article) {
-    // This functiont takes in a single JSON object for an article/headline
-    // It constructs a jQuery element containing all of the formatted HTML for the
-    // article card
-
+    //card html
     var card =
       $([ //whole card
         "<div class='card col-10 offset-1 article-card'>",
@@ -96,19 +90,14 @@ $(document).ready(function() {
         //end card
         "</div>"
       ].join(""));
-
-      // We attach the article's id to the jQuery element
-      // We will use this when trying to figure out which article the user wants to save
+    //attach the article id to the card
     card.data("_id", article._id);
-    // We return the constructed card jQuery element
+    //return the card as jquery element
     return card;
-  
-      
   }
 
   function renderEmpty() {
-    // This function renders some HTML to the page explaining we don't have any articles to view
-    // Using a joined array of HTML string data because it's easier to read/change than a concatenated string
+    //alert when there are no articles
     var emptyAlert =
       $([
       '<div class="alert alert-primary container text-center articles col-10 offset-1" id="no-articles" role="alert">',
@@ -123,42 +112,41 @@ $(document).ready(function() {
         "</div>",
       "</div>"
       ].join(""));
-    // Appending this data to the page
+    //append emptyAlert article container onto page
     articleContainer.append(emptyAlert);
   }
 
   function handleArticleSave() {
-    // This function is triggered when the user wants to save an article
-    // When we rendered the article initially, we attatched a javascript object containing the headline id
-    // to the element using the .data method. Here we retrieve that.
+    //the article to save is the card with the data (id)
     var articleToSave = $(this).parents(".card").data();
+    // set articleToSave to true
     articleToSave.saved = true;
-    // Using a patch method to be semantic since this is an update to an existing record in our collection
+    //ajax method patch to update the loaded
     $.ajax({
       method: "PATCH",
       url: "/api/headlines",
       data: articleToSave
     })
     .then(function(data) {
-      // If successful, mongoose will send back an object containing a key of "ok" with the value of 1
-      // (which casts to 'true')
+      // if data is true, run the app again
       if (data.ok) {
-        // Run the runApp function again. This will reload the entire list of articles
+        //run the app without the saved:true
         runApp();
       }
     });
   }
 
   function handleArticleScrape() {
-    // This function handles the user clicking any "scrape new article" buttons
+    //get the articles
     $.get("/api/fetch")
+      // then run the app
       .then(function(data) {
-        // If we are able to succesfully scrape the NYTIMES and compare the articles to those
-        // already in our collection, re render the articles on the page
-        // and let the user know how many unique articles we were able to save
+        //run app
         runApp();
+        //run the bootbox with the message of scrape results
         bootbox.alert ( {
           message: "<h3 class='text-center m-top-80'>" + data.message + "<h3>",
+          // don't want a close button if there's an OK button already
           closeButton: false
         }
           );
