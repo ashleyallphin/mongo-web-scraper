@@ -1,20 +1,24 @@
+//controller for notes (CRUD functionality)
+//===================================================
+
+// require Note model
 var Note = require("../models/Note");
-var makeDate = require("../scripts/date");
 
 module.exports = {
+  // GET THE NOTES
   get: function(data, cb) {
-    // find all notes with headline's id
+    // find all the notes associated with the document id
     Note.find({
       _headlineId: data._id
     }, cb);
   },
-  // save a note
-  save: function(data, cb) {
+    
+    // SAVE FUNCTION FOR THE NOTE
+    save: function(data, cb) {
     var newNote = {
       _headlineId: data._id,
       noteText: data.noteText
     };
-
     Note.create(newNote, function(err, doc) {
       if (err) {
         console.log("There was an error: " + err);
@@ -25,9 +29,11 @@ module.exports = {
       }
     });
   },
+
+  //DELETE A NOTE
   delete: function(data, cb) {
-    // remove a note
-    Note.remove({
+    //delete the note with the associated id
+    Note.deleteOne({
       _id: data._id
     }, cb);
   }

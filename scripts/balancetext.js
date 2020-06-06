@@ -749,10 +749,10 @@ var balanceText = function () {
         }
     }
 
-    publicInterface.updateWatched = updateWatched;
+    publicInterface.updateOneWatched = updateWatched;
 
     if (hasTextWrap()) {
-        noop.updateWatched = noop;
+        noop.updateOneWatched = noop;
         return noop;
     }
     return publicInterface;
