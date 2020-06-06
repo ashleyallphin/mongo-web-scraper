@@ -1,4 +1,4 @@
-Mongo Web Scraper
+**Mongo Web Scraper**
 ======
 
 
@@ -9,17 +9,11 @@ UTA-VIRT-FSF-PT-01-2020-U-LOL&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Homework #18&n
 
 ![home-page](public/assets/images/home-page.png)
 
-## Overview
+# Overview
 
-This `Node.js` & `MongoDB` app utilizes `cheerio` to scrape headlines from [The Ringer](www.theringer.com/features).  Articles are returned to the page with options to save and post notes.
+This `Node.js` and `MongoDB` app utilizes `cheerio` to scrape headlines from [The Ringer](www.theringer.com/features).  Articles are returned to the page with options to save and post notes.
 
-### Functionality
-
-On the backend, the app uses `express` to serve routes and `mongoose` to interact with a Mongo database.
-
-On the frontend, the app uses `handlebars` for templating and Bootstrap as a styling framework. `jQuery` and `AJAX` are used to post articles and notes to the pages.
-
-### Dependencies
+## Dependencies
 
    1. `express`
 
@@ -31,8 +25,15 @@ On the frontend, the app uses `handlebars` for templating and Bootstrap as a sty
 
    5. `axios`
 
+<br>
 
-### Database
+# Functionality
+
+## Backend
+
+On the backend, the app uses `express` to serve routes and `mongoose` to interact with a Mongo database.
+
+
 ```js
 // If deployed, use the deployed database. Otherwise, use the local ringerHeadlines database.
 
@@ -43,10 +44,22 @@ mongoose.connect(MONGODB_URI);
 
 This code creates a `mongoose` connection via mLab MongoDB Heroku add-on if deployed, but otherwise will connect to the local database mongoHeadlines collection.
 
-## Functionality
+<br>
 
-### Scraping Articles
+*Deployed database*![deployed-database](public/assets/images/mLab.png)
+*Localhost database*![localhost-database](public/assets/images/robo3T.png)
 
-### Saving Articles
+## Frontend
 
-### Posting Notes to Articles
+On the frontend, the app uses `handlebars` for HTML templating and Bootstrap as a styling framework. `jQuery` and `AJAX` are used to post articles and notes to the pages.
+
+*Scraping articles*![deployed-database](public/assets/images/scraping.gif){: .shadow}
+<br>
+
+*Saving and deleting articles*![deployed-database](public/assets/images/saving-deleting-articles.gif){: .shadow}
+<br>
+
+*Posting and deleting notes*![deployed-database](public/assets/images/adding-a-note.gif){: .shadow}
+
+
+
