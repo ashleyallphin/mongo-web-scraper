@@ -68,5 +68,9 @@ On the frontend, the app uses `handlebars` for HTML templating and Bootstrap as 
 ><!-- blank line -->
 >![deployed-database](public/assets/images/adding-a-note.gif)
 
+<br>
 
-
+## Additional Features to Implement in the Future
+- Add a clear all articles button and function.
+- Ability to add note without closing modal.
+- Further style buttons.
