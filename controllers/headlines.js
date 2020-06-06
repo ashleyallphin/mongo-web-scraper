@@ -1,9 +1,12 @@
 //controller for headline (CRUD functionality)
 //===================================================
 
-//bring in scrape scriptvar scrape = require("../scripts/scrape");
-var balanceText = require("../scripts/balancetext");
+//bring in scrape script
+var scrape = require("../scripts/scrape");
+//bring in Headline model
 var Headline = require("../models/Headline");
+var balanceText = require("../scripts/balancetext");
+
 
 module.exports = {
   
