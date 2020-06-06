@@ -13,7 +13,13 @@ UTA-VIRT-FSF-PT-01-2020-U-LOL Homework #18
 
 ## Overview
 
-This app utilizes `cheerio` to scrape articles from [The Ringer](www.theringer.com/features).  Articles are returned to the page with options to save and post notes.
+This `Node.js` & `MongoDB` app utilizes `cheerio` to scrape headlines from [The Ringer](www.theringer.com/features).  Articles are returned to the page with options to save and post notes.
+
+### Functionality
+
+On the backend, the app uses `express` to serve routes and `mongoose` to interact with a Mongo database.
+
+On the frontend, the app uses `handlebars` for templating and Bootstrap as a styling framework. `jQuery` and `AJAX` are used to post articles and notes to the pages.
 
 ### Dependencies
 
@@ -27,8 +33,8 @@ This app utilizes `cheerio` to scrape articles from [The Ringer](www.theringer.c
 
    5. `axios`
 
-<br>
 
+### Database
 ```js
 // If deployed, use the deployed database. Otherwise, use the local ringerHeadlines database.
 
@@ -39,3 +45,10 @@ mongoose.connect(MONGODB_URI);
 
 This code creates a `mongoose` connection via mLab MongoDB Heroku add-on if deployed, but otherwise will connect to the local database mongoHeadlines collection.
 
+## Functionality
+
+### Scraping Articles
+
+### Saving Articles
+
+### Posting Notes to Articles
