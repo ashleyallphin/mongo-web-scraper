@@ -74,3 +74,4 @@ On the frontend, the app uses `handlebars` for HTML templating and Bootstrap as 
 - Add a clear all articles button and function.
 - Ability to add note without closing modal.
 - Further style buttons.
+- Implement [balancetext.js](https://github.com/adobe/balance-text).
