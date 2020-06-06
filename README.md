@@ -53,13 +53,20 @@ This code creates a `mongoose` connection via mLab MongoDB Heroku add-on if depl
 
 On the frontend, the app uses `handlebars` for HTML templating and Bootstrap as a styling framework. `jQuery` and `AJAX` are used to post articles and notes to the pages.
 
-*Scraping articles*![deployed-database](public/assets/images/scraping.gif){: .shadow}
-<br>
 
-*Saving and deleting articles*![deployed-database](public/assets/images/saving-deleting-articles.gif){: .shadow}
-<br>
+>*Scraping articles*
+><!-- blank line -->
+>![deployed-database](public/assets/images/scraping.gif)
 
-*Posting and deleting notes*![deployed-database](public/assets/images/adding-a-note.gif){: .shadow}
+
+>*Saving and deleting articles*
+><!-- blank line -->
+>![deployed-database](public/assets/images/saving-deleting-articles.gif)
+
+
+>*Posting and deleting notes*
+><!-- blank line -->
+>![deployed-database](public/assets/images/adding-a-note.gif)
 
 
 
