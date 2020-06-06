@@ -2,9 +2,7 @@ Mongo Web Scraper
 ======
 
 
-_Ashley Allphin_
-
-UTA-VIRT-FSF-PT-01-2020-U-LOL Homework #18
+UTA-VIRT-FSF-PT-01-2020-U-LOL&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Homework #18&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Ashley Allphin
 
 > ### Deployed to Heroku [here](https://web-scraper-codingbootcamp-18.herokuapp.com/).
 
