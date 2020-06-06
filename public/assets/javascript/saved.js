@@ -2,6 +2,7 @@
 $(document).ready(function() {
   // use $ as the article container div
   var articleContainer = $(".article-container");
+  var noteContainer = $()
   // listening to run the functions
   $(document).on("click", ".delete-article-button", deleteArticle);
   $(document).on("click", ".article-notes-button", openNotesModal);
@@ -25,19 +26,22 @@ $(document).ready(function() {
     });
   }
 
-  function loadArticles(articles) {
-    //empty cards array
-    var articlecards = [];
-    //for each card, push them into the article cards array
-    for (var i = 0; i < articles.length; i++) {
-      articlecards.push(populateBSCard(articles[i]));
-    }
-    //push the article cards into the article container to render on the page
-    articleContainer.append(articlecards);
+  function renderEmpty() {
+    //html for when the saved article-container is empty
+    var emptyAlert =
+      $([
+      "<div class='alert alert-primary container text-center articles col-10 offset-1' role='alert' id='no-saved-articles-alert'>",
+        "<h2>",
+          "You do not have any saved articles.",
+        "</h2>",
+      "</div>"
+      ].join(""));
+    // show the emptyAlert on the page
+    articleContainer.append(emptyAlert);
   }
 
   function populateBSCard(article) {
-    //card html that populates the bootstrap card
+    // html that populates the bootstrap card
     var card =
       $([
       //whole card
@@ -102,63 +106,23 @@ $(document).ready(function() {
       //end card
       "</div>"
       ].join(""));
-    //attach the artcle's id
+    //attach the artcle's id as data
     card.data("_id", article._id);
     //attach the article's headline to show in modal
     card.data("_headline", article.headline);
-    // return the card
+    // return the card as jquery
     return card;
   }
 
-  function renderEmpty() {
-    //html for when the article-container is empty
-    var emptyAlert =
-      $([
-      "<div class='alert alert-primary container text-center articles col-10 offset-1' role='alert' id='no-saved-articles-alert'>",
-        "<h2>",
-          "You do not have any saved articles.",
-        "</h2>",
-      "</div>"
-      ].join(""));
-    // show the emptyAlert on the page
-    articleContainer.append(emptyAlert);
-  }
-
-  function renderNotesList(data) {
-    // empty array
-    var notesToRender = [];
-    var currentNote;
-    if (!data.notes.length) {
-      //if there are no notes, tell the user there are no notes
-      currentNote = [
-        "<li class='list-group-item no-notes-yet'>",
-          "You have not added any notes for this article.",
-        "</li>"
-      ].join("");
-        // push the currentNote <li> into notesToRender
-        notesToRender.push(currentNote);
+  function loadArticles(articles) {
+    //empty cards array
+    var articlecards = [];
+    //for each card, push into the article cards array
+    for (var i = 0; i < articles.length; i++) {
+      articlecards.push(populateBSCard(articles[i]));
     }
-    else {
-      //if we do have notes, go through a loop to render the notesToRender into note-container
-      for (var i = 0; i < data.notes.length; i++) {
-        currentNote = $([
-          "<li class='list-group-item note'>",
-          data.notes[i].noteText,
-          "<button class='btn note-delete'>",
-            '<div class="display-icon">',
-              '<i class="fa-spinnerZoom fa far fa-trash-alt fa-1x fa-fw "></i>',
-            "</div>",
-          "</button>",
-          "</li>"
-        ].join(""));
-        // trash can button deletes the note with the associated article id
-        currentNote.children("button").data("_id", data.notes[i]._id);
-        // push the currentNote <li> into notesToRender
-        notesToRender.push(currentNote);
-      }
-    }
-    //append the notesToRender to the note container
-    $(".note-container").append(notesToRender);
+    //append the article cards into the article container on the page
+    articleContainer.append(articlecards);
   }
 
   function deleteArticle() {
@@ -169,19 +133,56 @@ $(document).ready(function() {
       method: "DELETE",
       url: "/api/headlines/" + articleToDelete._id
     }).then(function(data) {
-      // If this works out, run runApp again which will rerender our list of saved articles
+      //if the data is true, run the app again without the deleted article
       if (data.ok) {
         runApp();
       }
     });
   }
 
+  function renderNotes(data) {
+    // empty array of notes
+    var notesToRender = [];
+    if (!data.notes.length) {
+      //if there are no notes, tell the user there are no notes
+      thisNote = [
+        "<li class='list-group-item no-notes-yet'>",
+          "You have not added any notes for this article.",
+        "</li>"
+      ].join("");
+        // push the thisNote <li> into notesToRender
+        notesToRender.push(thisNote);
+    }
+    else {
+      //if we do have notes, go through a loop to render the notesToRender into note-container
+      for (var i = 0; i < data.notes.length; i++) {
+        thisNote = $([
+          "<li class='list-group-item note'>",
+          data.notes[i].noteContent,
+          "<button class='btn note-delete'>",
+            '<div class="display-icon">',
+              '<i class="fa-spinnerZoom fa far fa-trash-alt fa-1x fa-fw "></i>',
+            "</div>",
+          "</button>",
+          "</li>"
+        ].join(""));
+        // trash can button deletes the note with the associated article id
+        thisNote.children("button").data("_id", data.notes[i]._id);
+        // push the thisNote <li> into notesToRender
+        notesToRender.push(thisNote);
+      }
+    }
+    //append the notesToRender to the note container
+    $(".note-container").append(notesToRender);
+  }
+
+
   function openNotesModal() {
     var currentArticle = $(this).parents(".card").data();
     
     //get the note with the associated article ID
     $.get("/api/notes/" + currentArticle._id).then(function(data) {
-      //populates the bs modal
+      //populates the bs modal with the associated id
       var modalText = [
         "<div class='container-fluid text-center'>",
           "<h5>",
@@ -194,35 +195,49 @@ $(document).ready(function() {
           "<button class='btn save save-note-button' style='margin-top: 10px' >Add Note</button>",
         "</div>"
       ].join("");
+      // run bootbox with the modal content, include a close button
       bootbox.dialog({
         message: modalText,
         closeButton: true
       });
+      //save the note data to the associated article
       var noteData = {
         _id: currentArticle._id,
         notes: data || []
       };
       $(".btn.save").data("article", noteData);
-      renderNotesList(noteData);
+      renderNotes(noteData);
     });
   }
 
   function addNote() {
-    //add the text the user entered into the note
-    var noteData;
+    //grab the content from the text area, store in variable 'newNote'
     var newNote = $(".bootbox-body textarea").val().trim();
-    // 
+    //if the user tries to enter a blank note
+    var emptyNote = [
+    "<div class='text-center m-top-80 emptyNote' style='font-weight:700; font-size: 20px;''>",
+      "Please enter text to add a note.",
+    "</div>"
+    ].join("");
+    //if there is content in newNote, add id and save newNote text in noteContent
     if (newNote) {
       noteData = {
         _id: $(this).data("article")._id,
-        noteText: newNote
+        noteContent: newNote
       };
       $.post("/api/notes", noteData).then(function() {
-        //close the modal
+        // close modal
         // bootbox.hideAll();
       });
+    } else { 
+      bootbox.alert ({
+        message:emptyNote,
+        closeButton: false
+      });
     }
-  }
+  }  
+  
+
 
   function deleteNote() {
     //delete the note with the associated id
@@ -231,8 +246,6 @@ $(document).ready(function() {
     $.ajax({
       url: "/api/notes/" + noteToDelete,
       method: "DELETE"
-    }).then(function() {
-      //close the modal
     });
     //remove the note in the DOM
     $(this).closest('.list-group-item').remove();

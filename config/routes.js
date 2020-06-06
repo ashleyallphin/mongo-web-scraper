@@ -92,7 +92,7 @@ module.exports = function(router) {//SERVER ROUTES
     });
   });
 
-  // save note
+  //add note
   router.post("/api/notes", function(req, res) {
     notesController.save(req.body, function(data) {
       res.json(data);

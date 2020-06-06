@@ -9,7 +9,7 @@ var noteSchema = new Schema({
     ref: "Headline"
   },
   date: String,
-  noteText: String
+  noteContent: String
 });
 
 // create Note model using noteSchema

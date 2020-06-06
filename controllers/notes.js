@@ -17,7 +17,7 @@ module.exports = {
     save: function(data, cb) {
     var newNote = {
       _headlineId: data._id,
-      noteText: data.noteText
+      noteContent: data.noteContent
     };
     Note.create(newNote, function(err, doc) {
       if (err) {

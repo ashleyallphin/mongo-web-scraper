@@ -420,6 +420,11 @@ footer a {
   opacity: 75%;
 }
 
+.emptyNote.btn {
+  background-color: transparent;
+  color: #f81376;
+}
+
 .close:hover {
   opacity: 100% !important;
   cursor: pointer;
